@@ -14,30 +14,26 @@
 		<form action="#" th:action="@{/jogadores/new}" th:object="${jogador}" method="POST">
 			<input type="hidden" th:field="*{id}" id="id">
 			
-			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
 			<input type="text" th:field="*{nome}" placeholder="Nome do Jogador" class="form-control mb-4 col-4"> 
 			
-			<span th:if="${#fields.hasErrors('numberCamisa')}" th:errors="*{numberCamisa}" class="text-danger"></span>
 			<input type="number" th:field="*{numberCamisa}" placeholder="Número da camisa" class="form-control mb-4 col-4">
 			
-			<span th:if="${#fields.hasErrors('campeonato')}" th:errors="*{campeonato}" class="text-danger"></span>
 			<input type="text" th:field="*{campeonato}" placeholder="Campeonato que participa" class="form-control mb-4 col-4">
 			
-			<span th:if="${#fields.hasErrors('posicao')}" th:errors="*{posicao}" class="text-danger"></span>
 			<input type="text" th:field="*{posicao}" placeholder="Posição em que joga" class="form-control mb-4 col-4">
 			
 			<div class="form-group">
 			    <label for="time">Time do Jogador(a)</label>
     <select class="form-control" id="time" th:field="*{time.id}">
         <option value="">Selecione um time(a) para o Jogador</option>
-        <option th:each="time : ${times}" th:value="${time.id}" th:text="${time.getNome()}"></option>
+        <option th:each="time : ${times}" th:value="${time.id}" th:text="${time.getFullName()}"></option>
     </select>
 			</div>
 			
-			<button type="submit" class="btn col-2" style="background-color:#0c24ab; color:#FFFFFF;">Salvar</button>
+			<button type="submit" class="btn col-2" style="background-color: #359830; color:#FFFFFF;">Salvar</button>
 		</form>
 		<hr>
-		<a th:field="@{/jogadores}" href="/jogadores">Jogadores</a>
+		<a th:field="@{/jogadores}">Jogadores</a>
 	</div>
 </body>
 </html>

@@ -3,9 +3,12 @@ package br.edu.ifsuldeminas.mch.webii.crudmanager.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,11 +53,16 @@ public class TimeController {
 	}
 	
 	@PostMapping("/times/new")
-	public String timeNew(@ModelAttribute("time=") Time time) {
+	public String timeNew(@Valid @ModelAttribute("time") Time time, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			return "time_form";
+		}
 		
 		timeRepository.save(time);
-		return "redirect:/indexTime";
+		return "redirect:/times";
 	}
+	
 	
 	@GetMapping("/times/update/{id}")
 	public String timeUpdate(@PathVariable("id") Integer id, Model model) {
@@ -67,7 +75,7 @@ public class TimeController {
 		
 		Time time = optTime.get();
 		
-		model.addAttribute("Time", time);
+		model.addAttribute("time", time);
 		
 		return "time_form";
 	}
@@ -85,6 +93,6 @@ public class TimeController {
 		
 		timeRepository.delete(time);
 		
-		return "redirect:/indexTime";
+		return "redirect:/times";
 	}
 }

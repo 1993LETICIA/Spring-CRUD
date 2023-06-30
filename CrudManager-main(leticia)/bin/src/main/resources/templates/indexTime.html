@@ -12,7 +12,7 @@
 		<div class="container my-2">
 			<h1>Times</h1>
 			<div>				
-				<a th:href="@{/times/form}" class="btn btn-md mb-3 float-right" style="background-color: #0c24ab; color:#FFFFFF;">
+				<a th:href="@{/times/form}" class="btn btn-md mb-3 float-right" style="background-color: #359830; color:#FFFFFF;">
 		   			Adicionar Time
         </a>
 			</div>
@@ -33,9 +33,9 @@
 						<td th:text="${t.tecnico}"></td>
 						<td th:text="${t.titulos}"></td>
 						<td>
-							<a th:href="@{/times/update/{id}(id=${t.id})}" class="btn" style="background-color:#0c24ab; color:#FFFFFF;">Alterar</a>
+							<a th:href="@{/times/update/{id}(id=${t.id})}" class="btn" style="background-color: #056B00; color:#FFFFFF;">Alterar</a>
 							
-							<a th:href="@{/times/delete/{id}(id=${t.id})}" class="btn btn-danger">Excluir</a>
+							<a th:href="@{/times/delete/{id}(id=${t.id})}" class="btn" style="background-color: #C90C0F; color:#FFFFFF;">Excluir</a>
 						</td>
 					</tr>
 				</tbody>

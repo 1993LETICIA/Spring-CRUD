@@ -15,13 +15,10 @@
 
 			<input type="hidden" th:field="*{id}" id="id">
 			
-			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
 			<input type="text" th:field="*{nome}" placeholder="Nome do time" class="form-control mb-4 col-4"> 
 			
-			<span th:if="${#fields.hasErrors('liga')}" th:errors="*{liga}" class="text-danger"></span>
 			<input type="text" th:field="*{liga}" placeholder="Liga que participa" class="form-control mb-4 col-4">
 			
-			<span th:if="${#fields.hasErrors('tecnico')}" th:errors="*{tecnico}" class="text-danger"></span>
 			<input type="text" th:field="*{tecnico}" placeholder="Técnico do time" class="form-control mb-4 col-4">
 			
 	
@@ -31,10 +28,10 @@
     <option value="false" th:selected="${time.titulos == 'false'}">Não Possui</option>
 </select>
 					
-			<button type="submit" class="btn col-2" style="background-color: #0c24ab; color:#FFFFFF;">Salvar</button>
+			<button type="submit" class="btn col-2" style="background-color: #359830; color:#FFFFFF;">Salvar</button>
 		</form>
 		<hr>
-		<a th:field="@{/times}" href="/times">Times</a>
+		<a th:field="@{/times}">Times</a>
 	</div>
 </body>
 </html>

@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="times")
@@ -13,8 +14,11 @@ public class Time {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	@NotBlank(message = "Nome não pode ser vazio" )
 	private String nome;
+	@NotBlank(message = "Liga não pode ser vazio" )
 	private String liga;
+	@NotBlank(message = "Tecnico não pode ser vazio" )
 	private String tecnico;
 	private Boolean titulos;
 

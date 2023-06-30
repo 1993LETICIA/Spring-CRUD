@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -18,9 +20,13 @@ public class Jogador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	@NotBlank(message = "Nome não pode ser vazio" )
     private String nome;
+	@NotNull(message = "Number Camisa não pode ser vazio" )
    private int numberCamisa;
+   @NotBlank(message = "Campeonato não pode ser vazio" )
    private String campeonato;
+   @NotBlank(message = "Posição não pode ser vazio" )
    private String posicao;
     
     @ManyToOne
